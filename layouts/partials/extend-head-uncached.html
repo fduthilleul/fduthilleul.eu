@@ -1,0 +1,57 @@
+{{ if in (slice "ai" "security" "telco" "compliance") .Section }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  {{ $bg := resources.Get "images/landing-bg.jpg" }}
+  <style>
+    html,
+    body {
+      font-family: Montserrat, "Century Gothic", ui-sans-serif, sans-serif !important;
+      color: #2c343c !important;
+      background-color: #eef3f4 !important;
+      background-image: url("{{ $bg.RelPermalink }}") !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      background-attachment: fixed !important;
+    }
+    .main-menu .hidden a span {
+      font-family: Montserrat, "Century Gothic", ui-sans-serif, sans-serif !important;
+      font-size: 0.72rem !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #2c343c;
+    }
+    .main-menu a:hover span {
+      color: #1a2228;
+    }
+    main,
+    main h1,
+    main h2,
+    main h3,
+    main h4,
+    .prose,
+    .prose :where(p, li, h1, h2, h3, h4) {
+      font-family: Montserrat, "Century Gothic", ui-sans-serif, sans-serif;
+    }
+    footer,
+    footer a {
+      color: #3e4a54;
+    }
+    .prose {
+      --tw-prose-body: #3e4a54;
+      --tw-prose-headings: #2c343c;
+      --tw-prose-links: #5d7d88;
+      --tw-prose-bold: #2c343c;
+    }
+    main h1,
+    .prose h1,
+    .prose h2,
+    .prose h3 {
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #2c343c;
+    }
+  </style>
+{{ end }}

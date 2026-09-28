@@ -23,16 +23,17 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #d5dee2;
     border-radius: 12px;
     overflow: hidden;
-    font-family: inherit;
+    font-family: Montserrat, "Century Gothic", ui-sans-serif, sans-serif;
+    background: rgba(255, 255, 255, 0.78);
   }
   .technos-index__sidebar {
     width: 300px;
     flex-shrink: 0;
-    background: #f7f6f3;
-    border-right: 1px solid #e5e5e5;
+    background: rgba(255, 255, 255, 0.72);
+    border-right: 1px solid #d5dee2;
     padding: 1.5rem 1rem;
     overflow-y: auto;
   }
@@ -52,7 +53,7 @@
     background: none;
     font-size: 14px;
     font-weight: 600;
-    color: #3b82f6;
+    color: #5d7d88;
     cursor: pointer;
   }
   .technos-index__title-row {
@@ -65,20 +66,22 @@
   }
   .technos-index__letter {
     font-size: 48px;
-    font-weight: 700;
-    color: #ddd;
+    font-weight: 400;
+    color: #2c343c;
     line-height: 1;
     flex-shrink: 0;
   }
   .technos-index__title {
     font-size: 28px;
-    font-weight: 700;
-    color: #111;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: #2c343c;
     text-decoration: none;
     word-break: break-word;
   }
-  html.dark .technos-index__title {
-    color: #f5f5f5;
+  html.dark .technos-index__title,
+  html.dark .technos-index__letter {
+    color: #2c343c;
   }
   #az-grid .az-btn {
     padding: 4px;
@@ -90,7 +93,7 @@
   }
   #az-grid .az-btn:not(:disabled) {
     cursor: pointer;
-    color: #111;
+    color: #2c343c;
   }
   #az-grid .az-btn:disabled {
     cursor: default;
@@ -107,7 +110,7 @@
       width: 100%;
       max-height: none;
       border-right: none;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #d5dee2;
       padding: 1rem 0.75rem;
     }
     .technos-index__main {
@@ -152,7 +155,7 @@
   {{/* ── LEFT SIDEBAR ── */}}
   <aside class="technos-index__sidebar">
 
-    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;color:#888;margin-bottom:1rem;">A–Z INDEX</p>
+    <p style="font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#5c6a74;margin-bottom:1rem;">A–Z INDEX</p>
 
     {{/* A–Z grid + # bucket (non-alphabetic titles) */}}
     <div id="az-grid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-bottom:1.5rem;">
@@ -189,12 +192,12 @@
     </div>
 
     {{/* Filter indicator */}}
-    <div id="tag-filter-bar" style="display:none;margin-bottom:.75rem;padding:5px 10px;background:#eff6ff;border-radius:6px;font-size:12px;color:#1d4ed8;align-items:center;justify-content:space-between;">
+    <div id="tag-filter-bar" style="display:none;margin-bottom:.75rem;padding:5px 10px;background:#e7eef0;border-radius:6px;font-size:12px;color:#3e4a54;align-items:center;justify-content:space-between;">
       <span>Tag : <strong id="active-tag-label"></strong></span>
-      <button onclick="clearTagFilter()" style="border:none;background:none;cursor:pointer;font-size:14px;color:#1d4ed8;padding:0;line-height:1;">✕</button>
+      <button onclick="clearTagFilter()" style="border:none;background:none;cursor:pointer;font-size:14px;color:#3e4a54;padding:0;line-height:1;">✕</button>
     </div>
 
-    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;color:#888;margin-bottom:.75rem;" id="under-label">UNDER —</p>
+    <p style="font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:#5c6a74;margin-bottom:.75rem;" id="under-label">UNDER —</p>
 
     <ul id="topic-ul" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px;">
       {{ range $topics }}
@@ -205,7 +208,7 @@
         data-id="{{ .File.UniqueID }}"
         data-tags="{{ delimit .Params.tags "," }}"
         onclick="selectTopic('{{ .File.UniqueID }}')"
-        style="display:none;align-items:center;gap:8px;padding:6px 10px;border-radius:7px;cursor:pointer;font-size:14px;color:#444;"
+        style="display:none;align-items:center;gap:8px;padding:6px 10px;border-radius:7px;cursor:pointer;font-size:14px;color:#3e4a54;"
         class="topic-li">
         <span class="topic-dot" style="width:7px;height:7px;border-radius:50%;background:#ccc;flex-shrink:0;display:inline-block;"></span>
         {{ .Title }}
@@ -234,9 +237,9 @@
 
       {{/* Breadcrumb — hidden on mobile (back button replaces it) */}}
       <p class="technos-index__breadcrumb" style="font-size:13px;color:#888;margin-bottom:1.5rem;">
-        <a href="#" onclick="showEmpty();return false;" style="color:#3b82f6;">Index</a>
+        <a href="#" onclick="showEmpty();return false;" style="color:#5d7d88;">Index</a>
         <span style="margin:0 4px;">›</span>
-        <span style="color:#3b82f6;cursor:pointer;" onclick="selectLetter('{{ $letter }}')">{{ $letter }}</span>
+        <span style="color:#5d7d88;cursor:pointer;" onclick="selectLetter('{{ $letter }}')">{{ $letter }}</span>
         <span style="margin:0 4px;">›</span>
         {{ .Title }}
       </p>
@@ -254,10 +257,10 @@
       </div>
 
       {{/* Summary card */}}
-      <div style="border:1px solid #e5e5e5;border-radius:10px;padding:1.5rem;background:#fff;">
+      <div style="border:1px solid #d5dee2;border-radius:10px;padding:1.5rem;background:#fff;">
 
         {{ with .Params.description }}
-        <p style="font-size:15px;font-weight:500;color:#374151;line-height:1.6;margin:0 0 1rem">
+        <p style="font-size:15px;font-weight:500;color:#3e4a54;line-height:1.6;margin:0 0 1rem">
           {{ . }}
         </p>
         {{ end }}
@@ -272,18 +275,17 @@
             class="technos-tag-pill"
             data-tag="{{ . }}"
             onclick="filterByTag(this.dataset.tag)"
-            style="font-size:12px;padding:3px 10px;border-radius:5px;border:1px solid #e0e0e0;color:#3b82f6;background:#eff6ff;cursor:pointer;transition:background .15s;"
-            onmouseover="this.style.background='#dbeafe'"
-            onmouseout="if (!this.classList.contains('technos-tag-pill--active')) this.style.background='#eff6ff'">
+            style="font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid #d5dee2;color:#3e4a54;background:#f4f7f8;cursor:pointer;letter-spacing:.04em;"
+            onmouseover="this.style.background='#e7eef0'"
+            onmouseout="if (!this.classList.contains('technos-tag-pill--active')) this.style.background='#f4f7f8'">
             {{ . }}
           </button>
           {{ end }}
           {{ end }}
           {{ with .Params.website }}
           <a href="{{ . }}" target="_blank" rel="noopener noreferrer"
-             style="display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:3px 10px;border-radius:5px;border:1px solid #bbf7d0;color:#15803d;background:#f0fdf4;text-decoration:none;transition:background .15s;"
-             onmouseover="this.style.background='#dcfce7'"
-             onmouseout="this.style.background='#f0fdf4'">
+             class="technos-website-link"
+             style="display:inline-flex;align-items:center;gap:4px;font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid #7eb8c4;color:#2f7f93;background:#e7f5f7;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;">
             <i class="ti ti-external-link" style="font-size:12px;"></i>
             Website
           </a>
@@ -343,12 +345,12 @@ function updateTagPillStyles() {
     const on = activeTagFilter && pill.dataset.tag === activeTagFilter;
     pill.classList.toggle('technos-tag-pill--active', on);
     if (on) {
-      pill.style.border = '1px solid #3b82f6';
-      pill.style.background = '#dbeafe';
+      pill.style.border = '1px solid #5d7d88';
+      pill.style.background = '#d5e3e8';
       pill.style.fontWeight = '600';
     } else {
-      pill.style.border = '1px solid #e0e0e0';
-      pill.style.background = '#eff6ff';
+      pill.style.border = '1px solid #d5dee2';
+      pill.style.background = '#f4f7f8';
       pill.style.fontWeight = '400';
     }
   });
@@ -412,9 +414,9 @@ function selectTopic(id) {
   document.querySelectorAll('.topic-li').forEach(li => {
     const on = li.dataset.id === id;
     li.style.background = on ? '#fff'    : 'transparent';
-    li.style.color      = on ? '#111'    : '#444';
+    li.style.color      = on ? '#2c343c'    : '#3e4a54';
     li.style.fontWeight = on ? '600'     : '400';
-    li.querySelector('.topic-dot').style.background = on ? '#3b82f6' : '#ccc';
+    li.querySelector('.topic-dot').style.background = on ? '#5d7d88' : '#ccc';
   });
   document.getElementById('detail-empty').style.display = 'none';
   document.querySelectorAll('[id^="detail-"]:not(#detail-empty)').forEach(d => d.style.display = 'none');

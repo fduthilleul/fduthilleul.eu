@@ -22,8 +22,3 @@
   name = "Compliance"
   pageRef = "compliance"
   weight = 50
-
-[[footer]]
-  name = "Personal site"
-  url = "https://lesitedefrancois.be/"
-  weight = 10
