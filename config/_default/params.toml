@@ -46,7 +46,7 @@ smartTOCHideUnfocusedChildren = true
   showTaxonomies = true
   showCategories = false
   showTags = true
-  sharingLinks = ["linkedin", "email"]
+  sharingLinks = false
 
 [list]
   showHero = false
