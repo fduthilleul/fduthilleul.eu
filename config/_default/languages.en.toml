@@ -1,0 +1,20 @@
+locale = "en"
+label = "English"
+weight = 1
+title = "François Duthilleul"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "January 2, 2006"
+  description = "Confidential computing, AI security and platform engineering"
+
+[params.author]
+  name = "François Duthilleul"
+  image = "images/author.jpeg"
+  headline = "Confidential computing, AI security & platform engineering"
+  bio = "Glossaries and notes on AI, security, telecommunications, and compliance."
+  links = [
+    { github = "https://github.com/fduthilleul" },
+  ]

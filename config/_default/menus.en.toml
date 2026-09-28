@@ -1,0 +1,29 @@
+[[main]]
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[main]]
+  name = "AI"
+  pageRef = "ai"
+  weight = 20
+
+[[main]]
+  name = "Security"
+  pageRef = "security"
+  weight = 30
+
+[[main]]
+  name = "Telco"
+  pageRef = "telco"
+  weight = 40
+
+[[main]]
+  name = "Compliance"
+  pageRef = "compliance"
+  weight = 50
+
+[[footer]]
+  name = "Personal site"
+  url = "https://lesitedefrancois.be/"
+  weight = 10
