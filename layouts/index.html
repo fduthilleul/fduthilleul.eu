@@ -10,6 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     {{ $bg := resources.Get "images/landing-bg.jpg" }}
+    {{ $bgDark := resources.Get "images/landing-bg-home-dark.jpg" }}
+    <script>
+      (function () {
+        var pref = localStorage.getItem("appearance");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (pref === "dark" || (pref !== "light" && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <style>
       * { box-sizing: border-box; }
       html, body { margin: 0; height: 100%; }
@@ -116,6 +126,37 @@
       .landing-foot a { color: inherit; text-decoration: none; }
       .landing-foot a:hover { color: #1a2228; }
       .landing-foot span { opacity: 0.7; }
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.6rem;
+        height: 1.6rem;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        cursor: pointer;
+      }
+      .theme-toggle svg { width: 1rem; height: 1rem; }
+      html.dark .icon-moon,
+      html:not(.dark) .icon-sun { display: none; }
+      html.dark body {
+        color: #e7eef0;
+        background: #0c1216 url("{{ $bgDark.RelPermalink }}") center / cover no-repeat fixed;
+      }
+      html.dark .landing-nav a:hover,
+      html.dark .landing-foot a:hover,
+      html.dark .theme-toggle:hover { color: #fff; }
+      html.dark .landing-role { color: #c5d0d4; }
+      html.dark .landing-bio { color: #d5dee2; }
+      html.dark .landing-foot { color: #a8b6be; }
+      html.dark .landing-tags a { border-color: rgba(180, 210, 220, 0.45); }
+      html.dark .landing-tags a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: #8ec4d0;
+      }
       @media (max-width: 640px) {
         .landing-nav { justify-content: center; flex-wrap: wrap; gap: 0.85rem 1rem; letter-spacing: 0.12em; }
         .landing-photo { width: 8.5rem; height: 8.5rem; }
@@ -129,6 +170,15 @@
       <a href="{{ "security/" | relURL }}">Security</a>
       <a href="{{ "telco/" | relURL }}">Telco</a>
       <a href="{{ "compliance/" | relURL }}">Compliance</a>
+      <button type="button" class="theme-toggle" id="appearance-switcher" aria-label="Dark mode switcher">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"></path>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
     </nav>
     <main class="landing">
       {{ with .Site.Params.Author.image }}
@@ -145,15 +195,17 @@
         <li><a href="{{ "ai/" | relURL }}">#ai</a></li>
         <li><a href="{{ "security/" | relURL }}">#security</a></li>
         <li><a href="{{ "telco/" | relURL }}">#telco</a></li>
-      </ul>
-      <ul class="landing-tags">
         <li><a href="{{ "compliance/" | relURL }}">#compliance</a></li>
-        <li><a href="{{ "security/tdx/" | relURL }}">#tdx</a></li>
-        <li><a href="{{ "ai/guardrails/" | relURL }}">#guardrails</a></li>
       </ul>
     </main>
     <footer class="landing-foot">
       <a href="https://github.com/fduthilleul">GitHub</a>
     </footer>
+    <script>
+      document.getElementById("appearance-switcher").addEventListener("click", function () {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem("appearance", document.documentElement.classList.contains("dark") ? "dark" : "light");
+      });
+    </script>
   </body>
 </html>

@@ -3,6 +3,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   {{ $bg := resources.Get "images/landing-bg.jpg" }}
+  {{ $bgDark := resources.Get "images/landing-bg-dark.jpg" }}
   <style>
     html,
     body {
@@ -14,6 +15,23 @@
       background-position: center !important;
       background-repeat: no-repeat !important;
       background-attachment: fixed !important;
+    }
+    html.dark,
+    html.dark body {
+      background-color: #0c1216 !important;
+      background-image: url("{{ $bgDark.RelPermalink }}") !important;
+    }
+    html.dark .main-menu .hidden a span {
+      color: #e7eef0;
+    }
+    html.dark .main-menu a:hover span,
+    html.dark .main-menu button,
+    html.dark .main-menu .bf-icon-color-hover {
+      color: #ffffff;
+    }
+    html.dark footer,
+    html.dark footer a {
+      color: #c5d0d4;
     }
     .main-menu .hidden a span {
       font-family: Montserrat, "Century Gothic", ui-sans-serif, sans-serif !important;
@@ -53,16 +71,129 @@
       letter-spacing: 0.04em;
       color: #2c343c;
     }
-    .toc a,
-    html.dark .toc a,
-    .dark .toc a {
+    .toc a {
       color: #2c343c !important;
       text-decoration-color: #5d7d88;
     }
-    .toc a:hover,
-    html.dark .toc a:hover,
-    .dark .toc a:hover {
+    .toc a:hover {
       color: #1a2228 !important;
+    }
+    main > article {
+      background: #fff;
+      border: 1px solid #d5dee2;
+      border-radius: 12px;
+      padding: 0.5rem 2rem 1.5rem;
+    }
+    html.dark,
+    html.dark body {
+      color: #e7eef0 !important;
+    }
+    html.dark main > article {
+      background: rgba(16, 22, 28, 0.92);
+      border-color: #2c3a42;
+      color: #e7eef0;
+    }
+    html.dark main h1,
+    html.dark .prose h1,
+    html.dark .prose h2,
+    html.dark .prose h3,
+    html.dark .prose h4 {
+      color: #f4f7f8;
+    }
+    html.dark .prose {
+      --tw-prose-body: #d5dee2;
+      --tw-prose-headings: #f4f7f8;
+      --tw-prose-links: #8ec4d0;
+      --tw-prose-bold: #f4f7f8;
+      --tw-prose-counters: #a8b6be;
+      --tw-prose-bullets: #7eb8c4;
+      --tw-prose-quotes: #d5dee2;
+      --tw-prose-quote-borders: #5d7d88;
+      --tw-prose-code: #e7eef0;
+    }
+    html.dark .prose :where(code):not(pre code) {
+      background: #243038;
+      color: #e7eef0;
+    }
+    html.dark .toc a,
+    html.dark .toc a:hover {
+      color: #e7eef0 !important;
+      text-decoration-color: #8ec4d0;
+    }
+    html.dark .technos-index {
+      background: rgba(16, 22, 28, 0.9) !important;
+      border-color: #2c3a42 !important;
+      color: #e7eef0 !important;
+    }
+    html.dark .technos-index__sidebar {
+      background: rgba(12, 18, 24, 0.78) !important;
+      border-color: #2c3a42 !important;
+    }
+    html.dark .technos-index__sidebar p,
+    html.dark .technos-index__breadcrumb,
+    html.dark #detail-empty {
+      color: #a8b6be !important;
+    }
+    html.dark .technos-index__breadcrumb a,
+    html.dark .technos-index__breadcrumb span,
+    html.dark .technos-index__back {
+      color: #8ec4d0 !important;
+    }
+    html.dark .technos-index__letter,
+    html.dark .technos-index__title {
+      color: #f4f7f8 !important;
+    }
+    html.dark .technos-index__main div[style*="background:#fff"],
+    html.dark .technos-index__main div[style*="255, 255, 255"] {
+      background: #1a242c !important;
+      border-color: #2c3a42 !important;
+    }
+    html.dark .technos-index__main p,
+    html.dark .technos-index__main li {
+      color: #d5dee2 !important;
+    }
+    html.dark #az-grid .az-btn:not(:disabled) {
+      color: #d5dee2 !important;
+    }
+    html.dark #az-grid .az-btn[style*="#fff"],
+    html.dark #az-grid .az-btn[style*="255, 255, 255"] {
+      background: #243038 !important;
+      border-color: #7eb8c4 !important;
+      color: #f4f7f8 !important;
+    }
+    html.dark .topic-li {
+      color: #c5d0d4 !important;
+    }
+    html.dark .topic-li[style*="#fff"],
+    html.dark .topic-li[style*="255, 255, 255"] {
+      background: #243038 !important;
+      color: #f4f7f8 !important;
+    }
+    html.dark #tag-filter-bar,
+    html.dark #tag-filter-bar button {
+      background: #1e2a32 !important;
+      color: #d5dee2 !important;
+    }
+    html.dark .technos-tag-pill {
+      border-color: #3d515c !important;
+      color: #d5dee2 !important;
+      background: #1e2a32 !important;
+    }
+    html.dark .technos-tag-pill--active {
+      border-color: #7eb8c4 !important;
+      background: #1a333c !important;
+      color: #e7f5f7 !important;
+    }
+    html.dark .technos-website-link {
+      border-color: #7eb8c4 !important;
+      color: #b7e3ec !important;
+      background: #143038 !important;
+    }
+    @media (max-width: 767px) {
+      main > article {
+        padding: 0.25rem 1rem 1rem;
+        border-radius: 8px;
+      }
     }
   </style>
 {{ end }}
