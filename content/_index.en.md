@@ -1,4 +1,4 @@
 ---
 title: "François Duthilleul"
-description: "Confidential computing, AI security and platform engineering"
+description: "Principal SSA @ Red Hat | CNCF Golden Kubestronaut"
 ---

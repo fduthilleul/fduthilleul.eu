@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Site.Title }}</title>
-    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,7 +189,7 @@
         {{ end }}
       {{ end }}
       <h1>{{ .Site.Params.Author.name }}</h1>
-      <p class="landing-role">{{ .Site.Params.Author.headline }}</p>
+      <p class="landing-role">{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.Author.headline }}{{ end }}</p>
       <p class="landing-bio">{{ .Site.Params.Author.bio }}</p>
       <ul class="landing-tags">
         <li><a href="{{ "ai/" | relURL }}">#ai</a></li>
