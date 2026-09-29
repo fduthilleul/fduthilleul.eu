@@ -1,4 +1,4 @@
-{{ if in (slice "ai" "security" "telco" "compliance") .Section }}
+{{ if or (in (slice "ai" "security" "telco" "compliance") .Section) (in (slice "tags" "categories" "topics") .Section) }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -198,5 +198,24 @@
         border-radius: 8px;
       }
     }
+    {{ if in (slice "tags" "categories" "topics") .Section }}
+    main#main-content {
+      background: #fff;
+      border: 1px solid #d5dee2;
+      border-radius: 12px;
+      padding: 0.5rem 2rem 1.5rem;
+    }
+    html.dark main#main-content {
+      background: rgba(16, 22, 28, 0.92);
+      border-color: #2c3a42;
+      color: #e7eef0;
+    }
+    @media (max-width: 767px) {
+      main#main-content {
+        padding: 0.25rem 1rem 1rem;
+        border-radius: 8px;
+      }
+    }
+    {{ end }}
   </style>
 {{ end }}
