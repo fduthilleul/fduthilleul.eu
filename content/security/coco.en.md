@@ -11,7 +11,7 @@ The runtime layer is built on **Kata Containers**: each pod runs inside a lightw
 
 Attestation and secret delivery are handled by **Trustee**, CoCo's attestation service stack. Inside the confidential VM, an **Attestation Agent (AA)** collects hardware evidence (a TDX Quote or SEV-SNP attestation report) and presents it to the **Key Broker Service (KBS)**, a relying-party service deployed in a separately trusted environment. The KBS forwards that evidence to an **Attestation Service (AS)** for verification against known-good reference values, and only releases secrets — decryption keys, registry credentials, sealed secrets — to pods that pass. This means container images can be stored encrypted in a public registry and pulled by an untrusted node, with decryption keys only becoming available inside the TEE after successful attestation. CoCo is the primary integration point where the low-level primitives described by **TPM** PCR measurements, **TDX** RTMRs, and **SEV-SNP** launch measurements become meaningful access control at the workload layer.
 
-## Relevant Red Hat blog posts
+## Additional Information
 - [Confidential Containers - Project website](https://confidentialcontainers.org/)
 - [Confidential Containers - CNCF website](https://www.cncf.io/projects/confidential-containers/)
 - [What is the Confidential Containers project?](https://www.redhat.com/en/blog/what-confidential-containers-project) (Oct 7, 2022)

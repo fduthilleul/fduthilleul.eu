@@ -11,7 +11,7 @@ Architecturally, DOCA exposes **programmable pipelines** (match-action tables, f
 
 **Red Hat** supports DOCA in conjunction with **RHEL on BlueField** and OpenShift-based deployments. Operators can run RHEL on the DPU Arm cores, use DOCA applications for accelerated networking and security, and manage the host with the same RHEL/OpenShift lifecycle tooling. Red Hat and NVIDIA publish guidance for **Open vSwitch** offload, **IPsec**, cloud-native networking, and zero-trust segmentation using DOCA on OpenShift. The value for AI platforms is operational: GPU nodes stay focused on models while DOCA-backed DPUs handle cluster networking, storage initiation, and policy enforcement with a supported Linux stack on both sides of the split.
 
-## Additional Informnation
+## Additional Information
 - [DPU-enabled networking with OpenShift and NVIDIA DPF](https://developers.redhat.com/articles/2025/03/20/dpu-enabled-networking-openshift-and-nvidia-dpf#) (Mar 20, 2025)
 - [NVIDIA OVS-DOCA on OpenShift](https://schmaustech.blogspot.com/2025/11/nvidia-ovs-doca-on-openshift.html) (Nov 24, 2025)
 - [NVIDIA OVS-DOCA via On-Cluster Layer OpenShift](https://schmaustech.blogspot.com/2026/05/nvidia-ovs-doca-via-on-cluster-layer.html) (May 7, 2026)

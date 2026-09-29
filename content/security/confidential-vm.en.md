@@ -11,7 +11,7 @@ The security properties of a CVM vary by underlying technology but share a commo
 
 The other defining property of a CVM is **attestability**: the TEE hardware can produce a signed report — a **TDX** Quote or **SEV-SNP** attestation report — that cryptographically binds the CVM's identity (its measured firmware, kernel, and initial state) to a hardware-rooted key that only genuine, unmodified hardware can produce. This report is what allows a workload owner to verify, from outside the cloud, that their CVM is running on real confidential hardware with an unmodified software stack before sending it secrets. CVMs are the runtime substrate for **CoCo (Confidential Containers)**, where each pod runs inside a CVM; for **Confidential Clusters**, where every Kubernetes node is a CVM; and for **Trustee**, which releases secrets only to CVMs that present a valid attestation report.
 
-## Relevant Red Hat blog posts
+## Additional Information
 
 - [Confidential computing use cases](https://www.redhat.com/en/blog/confidential-computing-use-cases) (May 16, 2023)
 - [Introduction to confidential virtual machines](https://www.redhat.com/en/blog/introduction-confidential-virtual-machines) (June 8, 2023)

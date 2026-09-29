@@ -11,6 +11,6 @@ The distinction from **CoCo (Confidential Containers)** is architectural scope a
 
 The critical operational challenge of a Confidential Cluster is **node admission**: how does a new node, booting autonomously in a cloud environment, prove to the existing cluster that it is a genuine, unmodified CVM before being allowed to join and receive the encryption keys it needs to access the cluster's state disk, network, and etcd? The answer is attestation-gated join: the bootstrapping node produces a hardware attestation report (a TDX Quote or SEV-SNP report) and presents it over an attested TLS connection to a join service running on the existing control plane; only if the report matches the expected node image measurements does the join service issue a Kubernetes bootstrap token and the storage encryption key. This means every node in the cluster has been individually attested against a known-good image before being admitted — node images built along the lines of **bootc** and protected at runtime by **composefs** naturally provide the stable, reproducible measurements that make those reference values meaningful. The result is "whole cluster" attestation: a workload owner can derive a single hardware-rooted certificate that transitively covers the node image, the cluster topology, and the configuration of every node that was ever admitted to the cluster.
 
-## Relevant Red Hat blog posts
+## Additional Information
 
 - [Confidential computing use cases](https://www.redhat.com/en/blog/confidential-computing-use-cases) (May 16, 2023)

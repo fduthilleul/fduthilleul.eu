@@ -13,7 +13,7 @@ The key architectural improvement of KMS v2 over v1 is how **Data Encryption Key
 
 **OpenShift's relationship to KMS v2** must be stated precisely to avoid the errors that appear in many secondary sources. OpenShift's **existing** etcd encryption mechanism — available since OCP 4.3 via `spec.encryption.type: aesCBC` or `aescbc` in the `APIServer` CR — uses **locally-managed, automatically-rotated keys** stored in a Secret on the control plane host filesystem under `/etc/kubernetes/static-pod-resources/`. This provides encryption at rest but with no external key control: the keys are managed entirely within the cluster. KMS v2 integration with an external KMS was introduced as a new capability in **OpenShift 4.21**, with **AWS KMS as the only supported provider**: the `APIServer` CR's `spec.encryption.kms.type` field accepts only the value `AWS` in 4.21, and the `spec.encryption.kms.aws` stanza configures the key ARN and region. No other KMS backend — Vault, Azure Key Vault, GCP KMS, or PKCS#11 — is a supported, Red Hat-managed integration for OCP etcd KMS encryption as of this writing. The OCP API Server Operator manages the plugin lifecycle, encryption configuration, and key rotation automatically for the AWS KMS path; self-managed clusters requiring a different KMS backend on vanilla Kubernetes can deploy the appropriate plugin as a static pod manually, but this is outside the OCP supported envelope.
 
-## Additional information
+## Additional Information
 
 - [Security model for Vault Kubernetes KMS
 ](https://github.com/hashicorp/web-unified-docs/blob/ab6191e4856b52a59a87fe0f17703671a7317ec6/content/vault/v1.21.x/content/docs/deploy/kubernetes/kms/security.mdx)

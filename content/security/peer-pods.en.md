@@ -11,6 +11,6 @@ The mechanism is the **Cloud API Adaptor (CAA)**, a daemonset running on each Ku
 
 The attestation and secret delivery flow is the same as in conventional CoCo: the Attestation Agent inside the peer pod VM collects hardware evidence, presents it to **Trustee** (KBS/AS), and receives secrets only after the evidence validates. The key operational trade-off of peer pods is latency: each pod start requires a cloud API call to provision a new VM, which adds seconds compared to the milliseconds of a local VM launch. This makes peer pods better suited to longer-lived, latency-tolerant workloads — inference services, batch jobs, data processing pipelines — than to short-lived or highly burst-scheduled tasks. In exchange, peer pods allow CoCo to run on any managed Kubernetes service (AKS, GKE, ROSA, IKS) without any special worker node configuration, making confidential containers accessible to the vast majority of cloud Kubernetes users who have no access to bare-metal nodes.
 
-## Relevant Red Hat blog posts
+## Additional Information
 
 - [Red Hat OpenShift Sandboxed Containers peer pods technical deep dive](https://www.redhat.com/en/blog/red-hat-openshift-sandboxed-containers-peer-pods-technical-deep-dive) (Feb 1, 2023)
