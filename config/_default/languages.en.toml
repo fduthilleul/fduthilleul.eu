@@ -14,7 +14,6 @@ title = "François Duthilleul"
   name = "François Duthilleul"
   image = "images/author.jpeg"
   headline = "Confidential computing, AI security & platform engineering"
-  bio = "Glossaries and notes on AI, security, telecommunications, and compliance."
   links = [
     { github = "https://github.com/fduthilleul" },
   ]

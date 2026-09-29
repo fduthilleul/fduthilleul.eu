@@ -87,6 +87,7 @@
         line-height: 1.6;
         color: #4c5963;
       }
+      .landing-bio p { margin: 0; }
       .landing-tags {
         display: flex;
         flex-wrap: wrap;
@@ -190,7 +191,9 @@
       {{ end }}
       <h1>{{ .Site.Params.Author.name }}</h1>
       <p class="landing-role">{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.Author.headline }}{{ end }}</p>
-      <p class="landing-bio">{{ .Site.Params.Author.bio }}</p>
+      {{ with .Content }}
+        <div class="landing-bio">{{ . }}</div>
+      {{ end }}
       <ul class="landing-tags">
         <li><a href="{{ "ai/" | relURL }}">#ai</a></li>
         <li><a href="{{ "security/" | relURL }}">#security</a></li>
