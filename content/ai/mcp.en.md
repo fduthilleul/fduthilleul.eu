@@ -17,3 +17,4 @@ Architecturally, MCP is **control-plane and I/O** heavy relative to **GPU** matm
 - [Give AI agents safe access to your cluster: MCP server for Red Hat OpenShift](https://www.redhat.com/en/blog/model-context-protocol-server-red-hat-openshift-now-available-technology-preview) (May 5, 2026)
 - [Control your AI agent traffic at scale: MCP gateway for Red Hat OpenShift](https://www.redhat.com/en/blog/control-your-ai-agent-traffic-scale-model-context-protocol-gateway-red-hat-openshift-now-technology-preview) (May 5, 2026)
 - [Manage MCP servers on Red Hat OpenShift with the MCP lifecycle operator](https://www.redhat.com/en/blog/manage-mcp-servers-red-hat-openshift-mcp-lifecycle-operator) (May 28, 2026)
+- [Connectivity for agentic AI applications with the Model Context Protocol gateway](https://docs.redhat.com/en/documentation/red_hat_connectivity_link/1.4/html-single/mcp_gateway/index)
